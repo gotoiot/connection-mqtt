@@ -1,0 +1,6 @@
+[submodule "web-mqtt-client"]
+	path = web-mqtt-client
+	url = https://github.com/hello-iot/web-mqtt-client.git
+[submodule "embedded-mqtt-client"]
+	path = embedded-mqtt-client
+	url = https://github.com/hello-iot/embedded-mqtt-client.git
