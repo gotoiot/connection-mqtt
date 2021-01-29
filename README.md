@@ -1,4 +1,4 @@
-# Platform MQTT
+# Application MQTT
 
 **Autor**: Agustin Bassi - 2021
 
@@ -20,7 +20,7 @@
 
 > En caso de encontrar algún problema, comentarlo en nuestro [foro de Hello IoT](https://groups.google.com/g/helloiot) para encontrar una solución entre los miembros de la comunidad.
 
-> Muchos de los proyectos implementados en Hello IoT utilizan Visual Studio Code como IDE de desarrollo debido a su potencia y capacidad de instalar extensiones útiles de desarrollo, por lo que se recomienda descargarlo desde [este link](https://code.visualstudio.com/download). 
+> Muchos de los proyectos implementados en Hello IoT utilizan Visual Studio Code como IDE de desarrollo debido a su potencia y capacidad de instalar extensiones útiles, por lo que se recomienda descargarlo desde [este link](https://code.visualstudio.com/download). 
 
 ## Introducción
 
@@ -87,9 +87,11 @@ Como el cliente ya se encuentra suscripto a todos los topics, en la sección `Lo
 
 ![web-mqtt-client-running](doc/mqtt-web-client-running.png)
 
+Para más información leer dentro del [README de web-mqtt-client](https://github.com/hello-iot/web-mqtt-client).
+
 ### Comunicación con Embedded MQTT Client
 
-Para probar la comunicación entre el MQTT Broker y el Embedded MQTT Client será necesario configurar PlatformIO dentro de Visual Studio Code y luego realizar las configuraciones de WiFi y el host MQTT tal como se indica dentro del [README de embedded-mqtt-client](./embedded-mqtt-client/README.md).
+Para probar la comunicación entre el MQTT Broker y el Embedded MQTT Client será necesario configurar PlatformIO dentro de Visual Studio Code y luego realizar las configuraciones de WiFi y el host MQTT tal como se indica dentro del [README de embedded-mqtt-client](https://github.com/hello-iot/embedded-mqtt-client).
 
 Una vez que el Embedded MQTT Client esté "enviando mediciones" de presión hacia el broker y se realice la visualización de tales mensajes dentro del Web MQTT Client, desde el cliente web publicar el topic `mqtt-client-001/config/publish_time` con un valor entre 1000 y 10000 (en ms). Esto cambiará el período con que el dispositivo publica los topics entre 1-10 segundos. Chequear que efectivamente cambie el período al enviar esos valores.
 
