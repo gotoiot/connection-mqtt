@@ -14,7 +14,7 @@
 
 ## Información importante
 
-> Para leer artículos relacionados con tecnologías IoT visitar nuestro sitio web [gotoiot.com](www.gotoiot.com).
+> Para leer artículos relacionados con tecnologías IoT visitar nuestro sitio web [gotoiot.com](https://www.gotoiot.com).
 
 > Para ver toda la documentación de los proyectos de manera abarcativa y organizada visitar nuestra [wiki de Goto IoT](https://github.com/gotoiot/doc/wiki).
 
