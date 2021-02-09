@@ -14,13 +14,13 @@
 
 ## Información importante
 
-> Para leer artículos relacionados con tecnologías IoT visitar nuestro sitio web [helloiot.net](https://helloiot.net).
+> Para leer artículos relacionados con tecnologías IoT visitar nuestro sitio web [gotoiot.com](https://gotoiot.com).
 
-> Para ver toda la documentación de los proyectos de manera abarcativa y organizada visitar nuestra [wiki de Hello IoT](https://github.com/hello-iot/documentation/wiki).
+> Para ver toda la documentación de los proyectos de manera abarcativa y organizada visitar nuestra [wiki de Goto IoT](https://github.com/gotoiot/doc/wiki).
 
-> En caso de encontrar algún problema, comentarlo en nuestro [foro de Hello IoT](https://groups.google.com/g/helloiot) para encontrar una solución entre los miembros de la comunidad.
+> En caso de encontrar algún problema, comentarlo en nuestro [foro de Goto IoT](https://groups.google.com/g/gotoiot) para encontrar una solución entre los miembros de la comunidad.
 
-> Muchos de los proyectos implementados en Hello IoT utilizan Visual Studio Code como IDE de desarrollo debido a su potencia y capacidad de instalar extensiones útiles, por lo que se recomienda descargarlo desde [este link](https://code.visualstudio.com/download). 
+> Muchos de los proyectos implementados en Goto IoT utilizan Visual Studio Code como IDE de desarrollo debido a su potencia y capacidad de instalar extensiones útiles, por lo que se recomienda descargarlo desde [este link](https://code.visualstudio.com/download). 
 
 ## Introducción
 
@@ -47,7 +47,7 @@ En caso contrario, primero instalar Docker desde la [documentación oficial](htt
 
 ## Descargar el código
 
-Desde la esquina superior derecha en [la home de este repositorio](https://github.com/hello-iot/platform-mqtt) realizar un `fork` a la cuenta personal. Una vez realizado el fork descargar el código con el siguiente comando (poner el usuario de github en la URL):
+Desde la esquina superior derecha en [la home de este repositorio](https://github.com/gotoiot/application-mqtt) realizar un `fork` a la cuenta personal. Una vez realizado el fork descargar el código con el siguiente comando (poner el usuario de github en la URL):
 
 ```
 git clone https://github.com/USER/web-mqtt-client.git
@@ -87,11 +87,11 @@ Como el cliente ya se encuentra suscripto a todos los topics, en la sección `Lo
 
 ![web-mqtt-client-running](doc/mqtt-web-client-running.png)
 
-Para más información leer dentro del [README de web-mqtt-client](https://github.com/hello-iot/web-mqtt-client).
+Para más información leer dentro del [README de web-mqtt-client](https://github.com/gotoiot/web-mqtt-client).
 
 ### Comunicación con Embedded MQTT Client
 
-Para probar la comunicación entre el MQTT Broker y el Embedded MQTT Client será necesario configurar PlatformIO dentro de Visual Studio Code y luego realizar las configuraciones de WiFi y el host MQTT tal como se indica dentro del [README de embedded-mqtt-client](https://github.com/hello-iot/embedded-mqtt-client).
+Para probar la comunicación entre el MQTT Broker y el Embedded MQTT Client será necesario configurar PlatformIO dentro de Visual Studio Code y luego realizar las configuraciones de WiFi y el host MQTT tal como se indica dentro del [README de embedded-mqtt-client](https://github.com/gotoiot/embedded-mqtt-client).
 
 Una vez que el Embedded MQTT Client esté "enviando mediciones" de presión hacia el broker y se realice la visualización de tales mensajes dentro del Web MQTT Client, desde el cliente web publicar el topic `mqtt-client-001/config/publish_time` con un valor entre 1000 y 10000 (en ms). Esto cambiará el período con que el dispositivo publica los topics entre 1-10 segundos. Chequear que efectivamente cambie el período al enviar esos valores.
 
@@ -99,10 +99,10 @@ Una vez que el Embedded MQTT Client esté "enviando mediciones" de presión haci
 
 Las mejoras son bienvenidas. Para ello es necesario hacer un fork de este proyecto, aplicar las mejoras y enviarlas mediante un pull request. Luego de la revisión, podrán ser incluídas.
 
-Si te gustó el proyecto no dudes en apoyarlo con una `Star`, y si estás interesado en recibir novedades podés aplicar un `Watch`. Estas acciones ayudan a fomentar la participación y creación de nuevos proyectos dentro de [Hello IoT](https://github.com/hello-iot/).
+Si te gustó el proyecto no dudes en apoyarlo con una `Star`, y si estás interesado en recibir novedades podés aplicar un `Watch`. Estas acciones ayudan a fomentar la participación y creación de nuevos proyectos dentro de [Goto IoT](https://github.com/gotoiot/).
 
 ## Licencia
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-![footer](doc/helloiot-footer.png)
+![footer](doc/gotoiot-footer.png)
