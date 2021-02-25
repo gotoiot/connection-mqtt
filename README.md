@@ -4,7 +4,6 @@
 
 ## Tabla de contenido
 
-* [Información contextual](#información-contextual)
 * [Introducción](#introducción)
 * [Instalar dependencias](#instalar-dependencias)
 * [Descargar el código](#descargar-el-código)
@@ -12,17 +11,9 @@
 * [Colaborar](#colaborar)
 * [Licencia](#licencia)
 
-## Información contextual
-
-> Para leer artículos relacionados con tecnologías IoT visitar nuestro sitio web [gotoiot.com](https://www.gotoiot.com).
-
-> Para ver toda la documentación de los proyectos de manera abarcativa y organizada visitar nuestra [wiki de Goto IoT](https://github.com/gotoiot/doc/wiki).
-
-> En caso de encontrar algún problema, comentarlo en nuestro [foro de Goto IoT](https://groups.google.com/g/gotoiot) para encontrar una solución entre los miembros de la comunidad.
-
-> Muchos de los proyectos implementados en Goto IoT utilizan Visual Studio Code como IDE de desarrollo debido a su potencia y capacidad de instalar extensiones útiles, por lo que se recomienda descargarlo desde [este link](https://code.visualstudio.com/download). 
-
 ## Introducción
+
+> Si todavía no conoces como está estructurada la plataforma Goto IoT es recomendable que leas la [información contextual](https://github.com/gotoiot/doc/wiki#informaci%C3%B3n-contextual) de nuestra wiki, que te puede ser de utilidad.
 
 Este proyecto es una plataforma integral IoT sobre el protocolo MQTT que se ejecuta sobre Docker Compose y que consta de varios módulos que se describen a continuación:
 
@@ -36,14 +27,9 @@ En la siguiente imagen se muestra un diagrama de arquitectura de la aplicación 
 
 ## Instalar dependencias
 
-Para este proyecto es necesario tener instalado Docker y Docker Compose. Ambas herramientas se pueden instalar en cualquier sistema operativo incluído Raspberry Pi OS. 
+Para este proyecto es necesario tener instalado `Docker` y `Docker Compose`. Ambas herramientas se pueden instalar en cualquier sistema operativo incluído Raspberry Pi OS. En la sección de [instalación de herramientas](https://github.com/gotoiot/doc/wiki/Herramientas#instalaci%C3%B3n) de la wiki se encuentran los detalles para instalar cada una.
 
-Ejecutarse sobre Docker Compose le da la capacidad de implementarse  de igual manera en cualquier sistema operativo, ya que Docker se encarga de abstraer la aplicación en containers.
-
-Si la aplicación debe ejecutarse sobre Raspberry Pi OS, seguir los pasos de instalación en Docker y Docker Compose en [este link](https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi). 
-
-En caso contrario, primero instalar Docker desde la [documentación oficial](https://docs.docker.com/get-docker/), y luego instalar Docker Compose desde la la [documentación oficial](https://docs.docker.com/compose/install/).
-
+Ejecutarse sobre Docker Compose le da la capacidad de implementarse de igual manera en cualquier sistema operativo, ya que Docker se encarga de abstraer la aplicación en containers.
 
 ## Descargar el código
 
