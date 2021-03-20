@@ -1,6 +1,6 @@
-[submodule "embedded-mqtt-client"]
-	path = embedded-mqtt-client
-	url = https://github.com/gotoiot/embedded-mqtt-client.git
 [submodule "web-mqtt-client"]
 	path = web-mqtt-client
 	url = git@github.com:gotoiot/web-mqtt-client.git
+[submodule "embed-iot-platform"]
+	path = embed-iot-platform
+	url = git@github.com:gotoiot/embed-iot-platform.git
