@@ -5,6 +5,7 @@
 ## Tabla de contenido
 
 * [Introducción](#introducción)
+* [Detalles principales](#detalles-principales)
 * [Instalar dependencias](#instalar-dependencias)
 * [Descargar el código](#descargar-el-código)
 * [Ejecutar la aplicación](#ejecutar-la-aplicación)
@@ -13,75 +14,95 @@
 
 ## Introducción
 
-Este proyecto es una aplicación de IoT basada en MQTT que se compone de un broker y un cliente web para comunicarse con el broker. Se ejecuta sobre Docker y es capaz de correr en diversos sistemas operativos, lo que la hace ideal para realizar pruebas con el protocolo MQTT en diferentes ambientes.
+Este proyecto es una demo de una aplicación IoT sobre MQTT. Se compone de un broker, un cliente web y otro embebido, y puede controlar un dispositivo remoto desde el navegador web.
 
-A través del broker se pueden conectar también distintos dispositivos y clientes, por lo que desde el cliente web es posible comunicarse con dispositivos embebidos, controlar sus salidas y leer los datos de sus sensores.
+El broker y el cliente web se ejecutan sobre el ecosistema Docker. La aplicación embebida corre sobre un ESP32 o similar y está desarrollada con PlatformIO.
 
-Para que tengas una idea clara sobre cómo está armado el proyecto, en la imagen siguiente podes ver un diagrama de la arquitectura general de la aplicación.
+Para que tengas una idea clara, en esta imagen hay un diagrama de la arquitectura de la aplicación.
 
 ![architecture](doc/architecture.png)
 
-[Web MQTT Client](https://github.com/gotoiot/web-mqtt-client) es una `single-page-application` que se comunica con el broker MQTT através de `WebSockets`. Funciona como un cliente donde se pueden publicar y suscribirse a topics; y visualizar los mensajes en tiempo real. El broker está basado en `Mosquitto` y soporta la conexión por Websockets en el puerto 9001, mientras que el puerto 1883 está dedicado a MQTT en texto plano y el puerto 8883 para comunicación con autenticación. 
+## Detalles principales
 
-Cualquier dispositivo embebido se puede conectar al broker; publicar y suscribirse a topics. Para que puedas probar distintas aplicaciones embebidas, armamos el proyecto [Embed IoT Platform](https://github.com/gotoiot/embed-iot-platform), que es un proyecto integral de desarrollo embebido para IoT y que tiene varias aplicaciones. Más adelante te explicamos cómo correr una de las aplicaciones MQTT disponibles.
+Ahora que ya viste la arquitectura general, podes ver detalles más específicos.
 
-Tanto el `Web MQTT Client`, como el proyecto `Embed IoT Platform` están configurados como submódulos dentro de este repositorio. Esto permite que ambos proyectos puedan ser actualizados y mejorados de manera independiente, sin la necesidad de modificar este proyecto.
+`Cómo está armado el repo`
+
+Todos las piezas de la aplicación están separadas en distintos repositorios e incluídas como submódulos. Con esto se puede tener una arquitectura orientada a microservicios, y actualizar y mantener las partes de manera independiente sin necesidad de modificar este repositorio.
+
+`El broker`
+
+El broker es la columna vertebral del sistema, donde los distintos clientes se comunican entre sí. Está basado en `Mosquitto` y soporta la conexión por Websockets en el puerto 9001, MQTT en el 1883 y el 8883 para comunicación con autenticación. Se ejecuta sobre un contenedor de Docker para poder correrlo de igual manera en distintas plataformas. Dentro de esta app se encuentra en el directorio `service-mqtt-broker` y los detalles sobre cómo funciona los podes ver el [README del proyecto](https://github.com/gotoiot/service-mqtt-broker).
+
+`El cliente web`
+
+El cliente web es una `single-page-application` que se comunica con el broker através de WebSockets. Desde acá se pueden publicar y suscribirse a topics, y visualizar los mensajes en tiempo real. El cliente web es accedido a través de un servidor que también se ejecuta sobre un contenedor de Docker. Dentro de esta app se encuentra en el directorio `web-mqtt-client` y los detalles sobre cómo funciona los podes ver en el [README del proyecto](https://github.com/gotoiot/web-mqtt-client).
+
+`El cliente embebido`
+
+El cliente embebido puede ser cualquier aplicación con comunicación MQTT. Para esta app se basa en el ejemplo `Pressure Measurer` del repo [Embed IoT Platform](https://github.com/gotoiot/embed-iot-platform), que es un proyecto integral para desarrollo IoT embebido. Además de este ejemplo tiene precargadas varias aplicaciones para correr sobre el ESP32 o alguna placa similar. Dentro de esta app se encuentra en el directorio `embed-iot-platform` y más adelante vas a ver cómo ponerlo en marcha. 
+
+`Ecosistema Docker`
+
+Los servicios de la aplicación se encuentran sobre contenedores de Docker, así se pueden desplegar de igual manera en diferentes plataformas. Los detalles sobre cómo funcionan los servicios los podés ver directamente en el archivo `docker-compose.yml` y complementar la información con el README de cada parte de la app.
 
 ## Instalar dependencias
 
-Para correr este proyecto es necesario que instales `Docker` y `Docker Compose`. Ejecutarse sobre el ecosistema Docker le da la capacidad de implementarse de igual manera en cualquier sistema operativo, ya que la herramienta se encarga de abstraer la aplicación en contenedores de software independientes dentro del sistema.
+Para correr este proyecto es necesario que instales `Docker` y `Docker Compose`. Para la parte embebida hay que instalar `PlatformIO` dentro de `Visual Studio Code`.
 
-En [este documento](https://www.gotoiot.com/pages/articles/docker_installation/index.html) publicado en nuestra web están los detalles para instalar Docker y Docker Compose. Si querés instalar el ecosistema Docker en una Raspberry Pi podés seguir [esta guía](https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi) que muestra todos los detalles de instalación.
+`Ecosistema Docker`
+
+En [este documento](https://www.gotoiot.com/pages/articles/docker_installation/index.html) publicado en nuestra web están los detalles para instalar Docker y Docker Compose. Si querés instalar ambas herramientas en una Raspberry Pi podés seguir [esta guía](https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi) que muestra todos los detalles de instalación.
 
 En caso que tengas algún incoveniente o quieras profundizar al respecto, podes leer la documentación oficial de [Docker](https://docs.docker.com/get-docker/) y también la de [Docker Compose](https://docs.docker.com/compose/install/).
 
+`Ecosistema embebido`
+
+Para la aplicación embebida vas a necesitar una placa ESP32 o similar e instalar PlatformIO dentro de VS Code. Instalá VS Code directamente de la [web oficial](https://code.visualstudio.com/download) y después en el artículo de [instalación de PlatformIO en VS Code](https://www.gotoiot.com/pages/articles/platformio_vscode_installation/) de nuestra web están los detalles de configuración de la herramienta y correr un programa de ejemplo.
+
+Continua con la descarga del código cuando tengas las dependencias instaladas y funcionando.
+
 ## Descargar el código
 
-Para descargar el codigo, lo más conveniente es realizar un `fork` de este proyecto a tu cuenta personal haciendo click en [este link](https://github.com/gotoiot/app-mqtt-connection/fork). Una vez que ya tengas el fork a tu cuenta, descargalo con este comando (acordate de poner tu usuario en el link):
+Para descargar el codigo, lo más conveniente es realizar un `fork` de este proyecto a tu cuenta personal haciendo click en [este link](https://github.com/gotoiot/app-mqtt-connection/fork). Una vez que ya tengas el fork a tu cuenta, descargalo desde la terminal con este comando (acordate de poner tu usuario en el link):
 
 ```
 git clone https://github.com/TU_USUARIO/app-mqtt-connection.git
 ```
 
-> En caso que no tengas una cuenta en Github podes clonar directamente este repo.
-
-Cuando tengas el código principal, descargá/actualizá los submódulos del proyecto con este comando:
+Cuando tengas el código principal, descargá/actualizá los submódulos del proyecto con este comando y pone a correr la aplicación una vez que descarguen:
 
 ```
 git submodule update --init --recursive --remote
 ```
 
-Abrí la carpeta del proyecto desde VS Code cuando descargues el código.
+> En caso que no tengas una cuenta en Github podes clonar directamente este repo y descargar los submódulos.
 
 ## Ejecutar la aplicación
 
-Accedé a la raíz del proyecto desde una terminal y ejecutá el siguiente comando, que se encarga de descargar las imágenes de Docker y ejecutar los contenedores de la aplicación:
+Corre el comando `docker-compose up` desde la raíz del proyecto para descargar las imágenes de Docker del broker MQTT y del servidor web y luego ponerlas en funcionamiento. Para acceder al cliente web ingresa esta URL [http://localhost:5001/](http://localhost:5001/) en el navegador (cambia la IP de la URL si la estás corriendo de manera remota). 
 
-```
-docker-compose up
-```
+Si pudiste acceder al cliente web significa que la aplicación se encuentra corriendo bien, ahora hay que configurarlo.
 
-Para acceder al `Web MQTT Client` ingresa esta URL [http://localhost:5001/](http://localhost:5001/) en el navegador. En caso que estés corriendo la aplicacion de manera remota, cambiá `localhost` por la IP correspondiente. Si pudiste acceder al cliente web significa que la aplicación se encuentra corriendo adecuadamente, ahora hay que configurarlo.
+#### `Comunicación con el cliente web`
 
-`Comunicación con cliente web`
+En el cliente web hay varios campos que tienen valores precargados para que no tengas que escribirlos cada vez.
 
-Una vez dentro del cliente web, tenes que setear los campos para conectarte al broker. Muchos de los campos tienen valores precargados para no tener que escribirlos cada vez.
+Modifica los campos que necesites para el broker y comenzá presionando `CONNECT`. Después `SUBSCRIBE` para suscribirte a todos los topics (`#`) y una vez que te suscribas presioná `PUBLISH` para producir un `echo` del mensaje enviado. Fijate que en la sección de logs aparecen las acciones que vas realizando.
 
-Si los datos por defecto te sirven, comenzá presionando `CONNECT` y después `SUBSCRIBE` para suscribirte a todos los topics (`#`). Fijate que en la sección de logs aparecen las acciones que vas realizando. Después una vez que te suscribas a todos los topics presioná el botón `PUBLISH`. Esto va a producir un `echo` del mensaje enviado.
+Si querés saber más detalles podes ir al [README del proyecto](https://github.com/gotoiot/web-mqtt-client), y sino podes continuar poniendo en marcha la aplicación embebida.
 
-Para hacer una prueba más completa podés abrir en otra pestaña una nueva instancia del cliente web, entonces desde una te suscribis a topics y desde la otra publicas, así podes ver la comunicación entre dos clientes utilizando el broker. Podés ver todos los detalles en el [README del proyecto](https://github.com/gotoiot/web-mqtt-client).
+#### `Comunicación con el cliente embebido`
 
-Si querés ir un paso más allá, podés conectar un cliente embebido para realizar una prueba MQTT más integral, como te mostramos a continuación.
+El cliente embebido es la aplicación Pressure Measurer del proyecto `Embed IoT Platform`, que como vimos, es una plataforma que facilita el desarrollo e implementación de aplicaciones embebidas IoT.
 
-`Comunicación con cliente embebido`
+Abrí la carpeta del proyecto desde VS Code y copia el contenido del archivo `embed-iot-platform/examples/mqtt/pressure_measurer/pressure_measurer.cpp`. Después reemplazá todo el contenido del archivo `embed-iot-platform/src/main.cpp` por el código que copiaste.
 
-Tal como mencionamos anteriormente, el proyecto `Embed IoT Platform` es una plataforma que facilita el desarrollo e implementación de aplicaciones embebidas IoT, y que tiene una sección específica de aplicaciones MQTT.
+También vas a necesitar poner un ID de dispositivo, los datos del WiFi y la IP del broker MQTT dentro del archivo `embed-iot-platform/src/secrets.h`.
 
-Para que puedas poner en marcha las distintas aplicaciones vas a necesitar una placa `ESP32` o similar, instalar `Visual Studio Code` en el sistema, y `PlatformIO` dentro de VS Code. Todos los detalles del proyecto así como también los de instalación de herramientas están plasmados en el [README del proyecto](https://github.com/gotoiot/embed-iot-platform), por lo que es necesario que primero completes los pasos generales antes de correr cualquiera de los ejemplos. Una vez funcionando el programa de ejemplo, pongamos en marcha una aplicación embebida MQTT.
+Los detalles sobre el Embed IoT Platform en general los podés ver en el [README del proyecto](https://github.com/gotoiot/embed-iot-platform) y los detalles específicos del Pressure Measurer los vas a encontrar en el [README del ejemplo](https://github.com/gotoiot/embed-iot-platform/blob/master/examples/mqtt/pressure_measurer/README.md).
 
-Vamos a probar la aplicación MQTT más simple, así que como primer paso, copia el [código de ejemplo "Pressure Measurer"](https://github.com/gotoiot/embed-iot-platform/blob/master/examples/mqtt/pressure_measurer/pressure_measurer.cpp) en el archivo `embed-iot-platform/src/main.cpp` y cargá adecuadamente los valores del ID del dispositivo, del WiFi y del broker MQTT en el archivo `embed-iot-platform/src/secrets.h` tal como está explicado en el [README del ejemplo](https://github.com/gotoiot/embed-iot-platform/blob/master/examples/mqtt/pressure_measurer/README.md).
-
-Una vez que compilas y descargas el código a la placa, en la terminal serie se va a mostrar una salida similar a la siguiente:
+Cuando ya tengas el código listo anda a la extensión PlatformIO en VSCode y abrí una terminal desde la sección `Quick Access->Miscellaneous->New Terminal`. Chequea que estés dentro del directorio embed-iot-platform en la terminal y corre el comando `pio run -t upload && pio device monitor` para compilar el código, descargarlo a la placa y abrir la terminal serie. Deberías ver una salida como esta cuando el programa empiece a correr:
 
 ```
 Welcome to Pressure Measurer - www.gotoiot.com
@@ -96,9 +117,15 @@ Sending MQTT Topic 'DEVICE_ID/pressure'->'{"value": 55, "measure": "psi", "time"
 Sending MQTT Topic 'DEVICE_ID/pressure'->'{ "value": 83, "measure": "psi", "time": 448821023}
 ```
 
-Si estás suscripto a todos los topics desde el cliente web (`#`) vas a poder visualizar los topics que envía la aplicación embebida, y si publicás el topic `DEVICE_ID/config` desde el cliente web con un valor entre 1000 y 10000 ms vas a poder cambiar el período en que el dispositivo publica las mediciones fake de presión.
+#### `Comunicación entre clientes`
 
-Ahora que ya sabés como correr el ejemplo Pressure Measurer, podés probar cualquier otra aplicación MQTT dentro de la [sección de ejemplos](https://github.com/gotoiot/embed-iot-platform/blob/master/examples/mqtt). Los detalles de implementación los vas a encontrar dentro del README de cada una.
+Con el cliente web suscripto a todos los topics deberías comenzar a ver los mensajes enviados por el Pressure Measurer en la sección de logs. Si publicás desde el cliente web el topic `DEVICE_ID/config` con un valor entre 1000 y 10000 ms vas a poder cambiar el período en que el dispositivo publica las mediciones fake de presión y este tiempo se va a ver reflejado en cómo llegan los mensajes al log.
+
+Realizá distintas pruebas y fijate cómo responden ambos clientes tanto en la sección de logs del cliente web como en la terminal serie del cliente embebido.
+
+#### `Otras aplicaciones embebidas`
+
+Ahora que ya sabés como correr el ejemplo Pressure Measurer, podés probar cualquier otra aplicación MQTT dentro de la [sección de ejemplos MQTT](https://github.com/gotoiot/embed-iot-platform/blob/master/examples/mqtt) del proyecto Embed IoT Platform. Los detalles de implementación los vas a encontrar dentro del README de cada uno.
 
 ## Colaborar
 

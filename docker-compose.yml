@@ -4,9 +4,9 @@ services:
   mosquitto:
     image: eclipse-mosquitto:latest
     volumes:
-      - ./mqtt-broker/config:/mosquitto/config
-      - ./mqtt-broker/auth:/etc/mosquitto/
-     #- ./mqtt-broker/certs:/mosquitto/certs
+      - ./service-mqtt-broker/config:/mosquitto/config
+      - ./service-mqtt-broker/auth:/etc/mosquitto/
+     #- ./service-mqtt-broker/certs:/mosquitto/certs
     expose:
       - "1883"
       - "8883"
@@ -22,8 +22,3 @@ services:
       - ./web-mqtt-client:/usr/local/apache2/htdocs/
     ports:
       - "5001:80"
-
-
-# networks:
-#   mq-connection-network:
-#     driver:                 bridge
