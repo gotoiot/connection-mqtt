@@ -26,23 +26,23 @@ Para que tengas una idea clara, en esta imagen hay un diagrama de la arquitectur
 
 Ahora que ya viste la arquitectura general, podes ver detalles más específicos.
 
-`Cómo está armado el repo`
+#### `Cómo está armado el repo`
 
 Todos las piezas de la aplicación están separadas en distintos repositorios e incluídas como submódulos. Con esto se puede tener una arquitectura orientada a microservicios, y actualizar y mantener las partes de manera independiente sin necesidad de modificar este repositorio.
 
-`El broker`
+#### `El broker`
 
 El broker es la columna vertebral del sistema, donde los distintos clientes se comunican entre sí. Está basado en `Mosquitto` y soporta la conexión por Websockets en el puerto 9001, MQTT en el 1883 y el 8883 para comunicación con autenticación. Se ejecuta sobre un contenedor de Docker para poder correrlo de igual manera en distintas plataformas. Dentro de esta app se encuentra en el directorio `service-mqtt-broker` y los detalles sobre cómo funciona los podes ver el [README del proyecto](https://github.com/gotoiot/service-mqtt-broker).
 
-`El cliente web`
+#### `El cliente web`
 
 El cliente web es una `single-page-application` que se comunica con el broker através de WebSockets. Desde acá se pueden publicar y suscribirse a topics, y visualizar los mensajes en tiempo real. El cliente web es accedido a través de un servidor que también se ejecuta sobre un contenedor de Docker. Dentro de esta app se encuentra en el directorio `web-mqtt-client` y los detalles sobre cómo funciona los podes ver en el [README del proyecto](https://github.com/gotoiot/web-mqtt-client).
 
-`El cliente embebido`
+#### `El cliente embebido`
 
 El cliente embebido puede ser cualquier aplicación con comunicación MQTT. Para esta app se basa en el ejemplo `Pressure Measurer` del repo [Embed IoT Platform](https://github.com/gotoiot/embed-iot-platform), que es un proyecto integral para desarrollo IoT embebido. Además de este ejemplo tiene precargadas varias aplicaciones para correr sobre el ESP32 o alguna placa similar. Dentro de esta app se encuentra en el directorio `embed-iot-platform` y más adelante vas a ver cómo ponerlo en marcha. 
 
-`Ecosistema Docker`
+#### `Ejecución de servicios`
 
 Los servicios de la aplicación se encuentran sobre contenedores de Docker, así se pueden desplegar de igual manera en diferentes plataformas. Los detalles sobre cómo funcionan los servicios los podés ver directamente en el archivo `docker-compose.yml` y complementar la información con el README de cada parte de la app.
 
@@ -50,13 +50,13 @@ Los servicios de la aplicación se encuentran sobre contenedores de Docker, así
 
 Para correr este proyecto es necesario que instales `Docker` y `Docker Compose`. Para la parte embebida hay que instalar `PlatformIO` dentro de `Visual Studio Code`.
 
-`Ecosistema Docker`
+#### `Ecosistema Docker`
 
 En [este documento](https://www.gotoiot.com/pages/articles/docker_installation/index.html) publicado en nuestra web están los detalles para instalar Docker y Docker Compose. Si querés instalar ambas herramientas en una Raspberry Pi podés seguir [esta guía](https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi) que muestra todos los detalles de instalación.
 
 En caso que tengas algún incoveniente o quieras profundizar al respecto, podes leer la documentación oficial de [Docker](https://docs.docker.com/get-docker/) y también la de [Docker Compose](https://docs.docker.com/compose/install/).
 
-`Ecosistema embebido`
+#### `Ecosistema embebido`
 
 Para la aplicación embebida vas a necesitar una placa ESP32 o similar e instalar PlatformIO dentro de VS Code. Instalá VS Code directamente de la [web oficial](https://code.visualstudio.com/download) y después en el artículo de [instalación de PlatformIO en VS Code](https://www.gotoiot.com/pages/articles/platformio_vscode_installation/) de nuestra web están los detalles de configuración de la herramienta y correr un programa de ejemplo.
 
