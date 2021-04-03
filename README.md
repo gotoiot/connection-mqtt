@@ -1,13 +1,34 @@
-<a href="https://www.gotoiot.com/">
-    <img src="doc/logo-social-networks.png" alt="Goto IoT logo" title="Goto IoT" align="right" height="60" />
-</a>
+<!-- PROJECT LOGO -->
+<p align="center">
+    <a href="https://www.gotoiot.com/">
+        <img src="doc/gotoiot-logo.png" alt="Logo" width="60" height="60">
+    </a>
+    <h2 align="center">Connection MQTT</h2>
+    <p align="center">
+        Una plataforma integral para desarrollo IoT basada en MQTT
+        <br>
+        <i>por Agustin Bassi - 2021</i>
+    </p>
+    <p align="center">
+        <a href="https://github.com/gotoiot/connection-mqtt/graphs/contributors">
+            <img src="https://img.shields.io/github/contributors/gotoiot/connection-mqtt.svg?style=for-the-badge" alt="Contributors">
+        </a>
+        <a href="https://github.com/gotoiot/connection-mqtt/network/members">
+            <img src="https://img.shields.io/github/forks/gotoiot/connection-mqtt.svg?style=for-the-badge" alt="Forks">
+        </a>
+        <a href="https://github.com/gotoiot/connection-mqtt/stargazers">
+            <img src="https://img.shields.io/github/stars/gotoiot/connection-mqtt.svg?style=for-the-badge" alt="Stargazers">
+        </a>
+        <a href="https://github.com/gotoiot/connection-mqtt/issues">
+            <img src="https://img.shields.io/github/issues/gotoiot/connection-mqtt.svg?style=for-the-badge" alt="Issues">
+        </a>
+        <a href="https://github.com/gotoiot/connection-mqtt/blob/master/LICENSE.txt">
+            <img src="https://img.shields.io/github/license/gotoiot/connection-mqtt.svg?style=for-the-badge" alt="Licence">
+        </a>
+    </p>
+</p>
 
-Sphere MQTT
-===========
-
-**Autor**: Agustin Bassi - 2021
-
-:star: Nos ayudarías mucho apoyando a Goto IoT con una estrella en Github!
+:star: Nos ayudarías mucho apoyando a este proyecto con una estrella en Github!
 
 ## Tabla de contenido
 
@@ -35,13 +56,14 @@ Para que tengas una idea clara, en esta imagen hay un diagrama de como interactu
 Seguí esta guía de pasos para ejecutar rápidamente el proyecto.
 
 <details><summary><b>Ver los pasos rápidos</b></summary>
+<br>
 
 1. Instalá Docker y Docker Compose en tu sistema.
 2. Descargá el código.
 3. Poné en marcha la plataforma.
 4. Configurá el cliente web para conectarte al broker.
 5. Probá la comunicación.
-6. Configura y poné en marcha un cliente embebido para interactuar con la plaatforma (opcional).
+6. Configura y poné en marcha un cliente embebido para interactuar con la plataforma (opcional).
 
 </details>
 
@@ -50,6 +72,7 @@ Seguí esta guía de pasos para ejecutar rápidamente el proyecto.
 Conociendo las generalidades del proyecto ya podes ver detalles más específicos.
 
 <details><summary><b>Mira los detalles del proyecto</b></summary>
+<br>
 
 #### `Cómo está armado el repo`
 
@@ -57,19 +80,19 @@ Las piezas de la aplicación están separadas en distintos repositorios e inclu�
 
 #### `El broker`
 
-El broker es la columna vertebral del sistema, donde los distintos clientes se comunican entre sí. Está basado en `Mosquitto` y soporta la conexión por Websockets en el puerto 9001, MQTT en el 1883 y el 8883 para comunicación con autenticación. Se ejecuta sobre un contenedor de Docker para poder correrlo de igual manera en distintas plataformas. Se encuentra en el directorio `service-mqtt-broker` y los detalles sobre cómo funciona los podes ver el [README del proyecto](https://github.com/gotoiot/service-mqtt-broker).
+El broker es la columna vertebral del sistema, donde los distintos clientes se comunican entre sí. Está basado en **Mosquitto** y soporta la conexión por Websockets en el puerto 9001, MQTT en el 1883 y el 8883 para comunicación con autenticación. Se ejecuta sobre un contenedor de Docker para poder correrlo de igual manera en distintas plataformas. Se encuentra en el directorio **service-mqtt-broker** y los detalles sobre cómo funciona los podes ver el [README del proyecto](https://github.com/gotoiot/service-mqtt-broker).
 
 #### `El cliente web`
 
-El cliente web es una `single-page-application` que se comunica con el broker através de WebSockets. Desde acá se pueden publicar y suscribirse a topics, y visualizar los mensajes en tiempo real. El cliente web es accedido a través de un servidor que también se ejecuta sobre un contenedor de Docker. Se encuentra en el directorio `web-mqtt-client` y los detalles sobre cómo funciona los podes ver en el [README del proyecto](https://github.com/gotoiot/web-mqtt-client).
+El cliente web es una **single-page-application** que se comunica con el broker através de WebSockets. Desde acá se pueden publicar y suscribirse a topics, y visualizar los mensajes en tiempo real. El cliente web es accedido a través de un servidor que también se ejecuta sobre un contenedor de Docker. Se encuentra en el directorio **web-mqtt-client** y los detalles sobre cómo funciona los podes ver en el [README del proyecto](https://github.com/gotoiot/web-mqtt-client).
 
 #### `Ejecución de servicios`
 
-Los servicios de la aplicación se encuentran sobre contenedores de Docker, así se pueden desplegar de igual manera en diferentes plataformas. Los detalles sobre cómo funcionan los servicios los podés ver directamente en el archivo `docker-compose.yml` y complementar la información con el README de cada parte de la app.
+Los servicios de la aplicación se encuentran sobre contenedores de Docker, así se pueden desplegar de igual manera en diferentes plataformas. Los detalles sobre cómo funcionan los servicios los podés ver directamente en el archivo **docker-compose.yml** y complementar la información con el README de cada parte de la app.
 
 #### `Conexión de sensores/actuadores`
 
-La conexión con sensores y actuadores no está incluída dentro de este repositorio, ya que la plataforma se ejecuta sobre el ecosistema Docker. De todas maneras tenemos el repo [Embed IoT Core](https://github.com/gotoiot/embed-iot-core), que es una plataforma para desarrollar aplicaciones embebidas basadas en IoT. Tiene aplicaciones de ejemplo para diferentes protocolos de comunicación, y entre ellas, una sección dedicada a MQTT. Más abajo, en la sección [Conectar clientes remotos](#conectar-clientes-remotos), vas a encontrar los detalles para esto.
+La conexión con sensores y actuadores no está incluída dentro de este repositorio ya que la plataforma se ejecuta sobre el ecosistema Docker. De todas maneras tenemos el repo [Embed IoT Core](https://github.com/gotoiot/embed-iot-core), que es una plataforma para desarrollar aplicaciones embebidas basadas en IoT. Tiene aplicaciones de ejemplo para diferentes protocolos de comunicación, y entre ellas, una sección dedicada a MQTT. Más abajo, en la sección [Conectar clientes remotos](#conectar-clientes-remotos), vas a encontrar los detalles para esto.
 
 </details>
 
@@ -77,7 +100,8 @@ La conexión con sensores y actuadores no está incluída dentro de este reposit
 
 Para correr este proyecto es necesario que instales `Docker` y `Docker Compose`. 
 
-<details><summary><b>Mira instrucciones de instalación</b></summary>
+<details><summary><b>Mira las instrucciones de instalación</b></summary>
+<br>
 
 En [este documento](https://www.gotoiot.com/pages/articles/docker_installation/index.html) publicado en nuestra web están los detalles para instalar Docker y Docker Compose. Si querés instalar ambas herramientas en una Raspberry Pi podés seguir [esta guía](https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi) que muestra todos los detalles de instalación.
 
@@ -89,10 +113,10 @@ Continua con la descarga del código cuando tengas las dependencias instaladas y
 
 ## Descargar el código
 
-Para descargar el codigo, lo más conveniente es realizar un `fork` de este proyecto a tu cuenta personal haciendo click en [este link](https://github.com/gotoiot/sphere-mqtt/fork). Una vez que ya tengas el fork a tu cuenta, descargalo desde la terminal con este comando (acordate de poner tu usuario en el link):
+Para descargar el codigo, lo más conveniente es realizar un `fork` de este proyecto a tu cuenta personal haciendo click en [este link](https://github.com/gotoiot/connection-mqtt/fork). Una vez que ya tengas el fork a tu cuenta, descargalo desde la terminal con este comando (acordate de poner tu usuario en el link):
 
 ```
-git clone https://github.com/USER/sphere-mqtt.git
+git clone https://github.com/USER/connection-mqtt.git
 ```
 
 Cuando tengas el código principal, descargá/actualizá los submódulos del proyecto con este comando y continua con la ejecución de la aplicación una vez que descarguen:
@@ -105,17 +129,18 @@ git submodule update --init --recursive --remote
 
 ## Ejecutar la aplicación
 
-Corre el comando `docker-compose up` desde la raíz del proyecto para descargar las imágenes de Docker del broker MQTT y del servidor web y luego ponerlas en funcionamiento. Para acceder al cliente web ingresa esta URL [http://localhost:5001/](http://localhost:5001/) en el navegador (cambia la IP de la URL si la estás corriendo de manera remota). 
+Para ejecutar la aplicación tenes que correr el comando `docker-compose up` desde la raíz del proyecto. Este comando va a  descargar las imágenes de Docker del broker MQTT y del servidor web y luego ponerlas en funcionamiento. Para acceder al cliente web ingresa a esta URL [http://localhost:5001/](http://localhost:5001/) en el navegador (cambia la IP de la URL si la estás corriendo de manera remota). 
 
-Si pudiste acceder al cliente web significa que la aplicación se encuentra corriendo bien, ahora hay que configurarlo.
+Si pudiste acceder al cliente web significa que la aplicación se encuentra corriendo bien, ahora deberias configurarlo para conectarte al broker.
 
 <details><summary><b>Cofiguración del cliente web</b></summary>
+<br>
 
 En el cliente web hay varios campos que tienen valores precargados para que no tengas que escribirlos cada vez.
 
 Modifica los campos que necesites para el broker y comenzá presionando `CONNECT`. Después `SUBSCRIBE` para suscribirte a todos los topics (`#`) y una vez que te suscribas presioná `PUBLISH` para producir un `echo` del mensaje enviado. Fijate que en la sección de logs aparecen las acciones que vas realizando.
 
-También podés abrir una nueva instancia del cliente web en otra pestaña del navegador y probar la comunicación publicando topics desde un cliente y recibiendo por el otro. 
+Para hacer una prueba más completa, podés abrir una nueva instancia del cliente web en otra pestaña del navegador y probar la comunicación publicando topics desde un cliente y recibiendo los mensajes por el otro. 
 
 Si querés saber más detalles podes ir al [README del proyecto](https://github.com/gotoiot/web-mqtt-client). 
 
@@ -125,23 +150,25 @@ Si querés saber más detalles podes ir al [README del proyecto](https://github.
 
 Como viste en el diagrama de las partes, la `Sphere MQTT` tiene un core compuesto por el broker y el cliente web, y luego distintos clientes pueden conectarse para interactuar con la plataforma. En esta sección podes ver más detalles al respecto.
 
-<details><summary><b>Aplicaciones MQTT basadas en "Embed IoT Core"</b></summary>
+<details><summary><b>Conectarse con aplicaciones MQTT basadas en "Embed IoT Core"</b></summary>
+<br>
 
 En la sección de [Detalles principales](#detalles-principales) viste que es posible conectar sensores/actuadores a la plataforma. 
 
-Dentro de nuestros proyectos tenemos a [Embed IoT Core](https://github.com/gotoiot/embed-iot-core), que es una plataforma exclusivamente dedicada al desarrollo de aplicaciones embebidas orientadas a IoT. Dentro de este proyecto hay aplicaciones de ejemplo para distintos protocolos de comunicación, y entre ellas, ejemplos para MQTT. 
+Dentro de nuestros proyectos tenemos a [Embed IoT Core](https://github.com/gotoiot/embed-iot-core), que es una plataforma exclusivamente dedicada al desarrollo de aplicaciones embebidas orientadas a IoT. En  este proyecto hay aplicaciones de ejemplo para distintos protocolos de comunicación, y entre ellas, ejemplos para MQTT. 
 
 Para poder correr cualquiera de las aplicaciones vas a necesitar una placa basada en el módulo `ESP32` o similar; instalar `Visual Studio Code` en tu sistema, y dentro de VS Code instalar la extensión `PlatformIO`. Esta extensión es un toolchain para desarrollo de sistemas embebidos especialmente útil, que se encarga del manejo de bibliotecas, compilación y descarga de código, debugging, y muchas cosas más. 
 
-Si querés poner en marcha una aplicación embebida para conectarte, te recomendamos que le des una leída al [README del proyecto](https://github.com/gotoiot/embed-iot-core), que tiene toda la información para que entiendas de qué se trata, cómo descargar el código e instalar las dependencias, y cómo poner en marcha un ejemplo de prueba.
+Si querés poner en marcha una aplicación embebida para conectarte, te recomendamos que le des una mirada al [README del proyecto](https://github.com/gotoiot/embed-iot-core), que tiene toda la información para que entiendas de qué se trata, cómo descargar el código e instalar las dependencias, y cómo poner en marcha un ejemplo de prueba.
 
 Cuando tengas andando el ejemplo de prueba, podés elegir algunas de las aplicaciones MQTT dentro de la [lista de aplicaciones](https://github.com/gotoiot/embed-iot-core#lista-de-aplicaciones) para conectarte a la `Sphere MQTT`. 
 
-La info necesaria para configurar el proyecto y correr las aplicaciones está directamente en el [README del proyecto](https://github.com/gotoiot/embed-iot-core), así podés siempre acceder a la información actualizada. 
+La info necesaria para configurar y correr las diferentes aplicaciones la vas a encontrar directamente en el [README del proyecto](https://github.com/gotoiot/embed-iot-core), así podés acceder siempre a la información actualizada. 
 
 </details>
 
 <details><summary><b>Comunicación entre clientes</b></summary>
+<br>
 
 Si ya tenés configurado y andando el cliente web, y también pusiste en marcha alguna aplicación MQTT basada en `Embed IoT Core` es hora que hagas algunas pruebas de todas las partes para ver cómo interactúan. 
 
@@ -155,14 +182,23 @@ Realizando estas pruebas vas a poder tener un caso de uso real en el que un disp
 
 ## Colaborar
 
-¿Te gustó el proyecto? Si es así no dudes en apoyarlo con una Star en Github desde [la home del proyecto](https://github.com/gotoiot/sphere-mqtt), esto motiva mucho a seguir adelante con el desarrollo de código para la comunidad. Si estás interesado en recibir novedades cuando se hagan actualizaciones, podes suscribirte desde [este link](https://github.com/gotoiot/sphere-mqtt/subscription).
+¿Te gustó el proyecto? Si es así no dudes en apoyarlo con una Star en Github desde [la home del proyecto](https://github.com/gotoiot/connection-mqtt), esto motiva mucho a seguir adelante con el desarrollo de código para la comunidad. Si estás interesado en recibir novedades cuando se hagan actualizaciones, podes suscribirte desde [este link](https://github.com/gotoiot/connection-mqtt/subscription).
 
-Si te gustaría aplicar mejoras a este proyecto podes abrir un hilo de discusión en [este link](https://github.com/gotoiot/sphere-mqtt/issues/new) para conversarlas y luego podrías enviarlas mediante un `pull request`. 
+Si te gustaría aplicar mejoras a este proyecto podes abrir un hilo de discusión en [este link](https://github.com/gotoiot/connection-mqtt/issues/new) para conversarlas y luego podrías enviarlas mediante un `pull request`. 
 
 Finalmente podés compartir este proyecto para que más personas puedan utilizarlo y beneficiarse de esta gran comunidad del software libre.
 
 ## Licencia
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Acerca de Goto IoT
+
+Estos son los links más relevantes para que puedas mantenerte al tanto de novedades y actualizaciones:
+
+* **[Sitio web](https://www.gotoiot.com/):** Donde se publican los artículos y proyectos sobre IoT. 
+* **[Github de Goto IoT:](https://github.com/gotoiot)** Donde están todos los proyectos para descargar y utilizar. 
+* **[Foro de Goto IoT:](https://groups.google.com/g/gotoiot)** Donde los miembros del grupo realizan consultas técnicas, solucionan problemas y comparten novedades.
+* **[Twitter de Goto IoT:](https://twitter.com/gotoiot)** Donde se publican novedades como nuevos proyectos y artículos, así como también temas relacionados con la materia.
 
 ![footer](doc/gotoiot-footer.png)
