@@ -1,4 +1,3 @@
-<!-- PROJECT LOGO -->
 <p align="center">
     <a href="https://www.gotoiot.com/">
         <img src="doc/gotoiot-logo.png" alt="Logo" width="60" height="60">
@@ -103,9 +102,9 @@ Para correr este proyecto es necesario que instales `Docker` y `Docker Compose`.
 <details><summary><b>Mira las instrucciones de instalación</b></summary>
 <br>
 
-En [este documento](https://www.gotoiot.com/pages/articles/docker_installation/index.html) publicado en nuestra web están los detalles para instalar Docker y Docker Compose. Si querés instalar ambas herramientas en una Raspberry Pi podés seguir [esta guía](https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi) que muestra todos los detalles de instalación.
+En [este artículo](https://www.gotoiot.com/pages/articles/docker_installation_linux/) publicado en nuestra web están los detalles para instalar Docker y Docker Compose en una máquina Linux. Si querés instalar ambas herramientas en una Raspberry Pi podés seguir [este artículo](https://www.gotoiot.com/pages/articles/rpi_docker_installation) de nuestra web que te muestra todos los pasos necesarios.
 
-En caso que tengas algún incoveniente o quieras profundizar al respecto, podes leer la documentación oficial de [Docker](https://docs.docker.com/get-docker/) y también la de [Docker Compose](https://docs.docker.com/compose/install/).
+En caso que quieras instalar las herramientas en otra plataforma o tengas algún incoveniente, podes leer la documentación oficial de [Docker](https://docs.docker.com/get-docker/) y también la de [Docker Compose](https://docs.docker.com/compose/install/).
 
 Continua con la descarga del código cuando tengas las dependencias instaladas y funcionando.
 
@@ -146,9 +145,9 @@ Si querés saber más detalles podes ir al [README del proyecto](https://github.
 
 </details>
 
-## Conectar clientes remotos
+## Conectar clientes
 
-Como viste en el diagrama de las partes, la `Sphere MQTT` tiene un core compuesto por el broker y el cliente web, y luego distintos clientes pueden conectarse para interactuar con la plataforma. En esta sección podes ver más detalles al respecto.
+Como viste en el diagrama de las partes, `Connection MQTT` tiene un core compuesto por el broker y el cliente web, y luego distintos clientes pueden conectarse para interactuar con la plataforma. En esta sección podes ver más detalles al respecto.
 
 <details><summary><b>Conectarse con aplicaciones MQTT basadas en "Embed IoT Core"</b></summary>
 <br>
@@ -167,7 +166,7 @@ La info necesaria para configurar y correr las diferentes aplicaciones la vas a 
 
 </details>
 
-<details><summary><b>Comunicación entre clientes</b></summary>
+<details><summary><b>Comunicación entre el Cliente Web y otros clientes </b></summary>
 <br>
 
 Si ya tenés configurado y andando el cliente web, y también pusiste en marcha alguna aplicación MQTT basada en `Embed IoT Core` es hora que hagas algunas pruebas de todas las partes para ver cómo interactúan. 
@@ -182,7 +181,7 @@ Realizando estas pruebas vas a poder tener un caso de uso real en el que un disp
 
 ## Colaborar
 
-¿Te gustó el proyecto? Si es así no dudes en apoyarlo con una Star en Github desde [la home del proyecto](https://github.com/gotoiot/connection-mqtt), esto motiva mucho a seguir adelante con el desarrollo de código para la comunidad. Si estás interesado en recibir novedades cuando se hagan actualizaciones, podes suscribirte desde [este link](https://github.com/gotoiot/connection-mqtt/subscription).
+¿Te gustó el proyecto? Si es así no dudes en apoyarlo con una :star: en Github desde [la home del proyecto](https://github.com/gotoiot/connection-mqtt), esto motiva mucho a seguir adelante con el desarrollo de código para la comunidad. Si estás interesado en recibir novedades cuando se hagan actualizaciones, podes suscribirte desde [este link](https://github.com/gotoiot/connection-mqtt/subscription).
 
 Si te gustaría aplicar mejoras a este proyecto podes abrir un hilo de discusión en [este link](https://github.com/gotoiot/connection-mqtt/issues/new) para conversarlas y luego podrías enviarlas mediante un `pull request`. 
 
@@ -194,11 +193,12 @@ Finalmente podés compartir este proyecto para que más personas puedan utilizar
 
 ## Acerca de Goto IoT
 
-Estos son los links más relevantes para que puedas mantenerte al tanto de novedades y actualizaciones:
+Estos son los links más relevantes para que puedas mantenerte al tanto de novedades y actualizaciones :point_down:
 
 * **[Sitio web](https://www.gotoiot.com/):** Donde se publican los artículos y proyectos sobre IoT. 
 * **[Github de Goto IoT:](https://github.com/gotoiot)** Donde están todos los proyectos para descargar y utilizar. 
 * **[Foro de Goto IoT:](https://groups.google.com/g/gotoiot)** Donde los miembros del grupo realizan consultas técnicas, solucionan problemas y comparten novedades.
 * **[Twitter de Goto IoT:](https://twitter.com/gotoiot)** Donde se publican novedades como nuevos proyectos y artículos, así como también temas relacionados con la materia.
+* **[Wiki de Goto IoT:](https://github.com/gotoiot/doc/wiki)** Donde hay información complementaria de desarrollo que puede ser de utilidad para ampliar el contexto.
 
 ![footer](doc/gotoiot-footer.png)
