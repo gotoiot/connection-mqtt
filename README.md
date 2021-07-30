@@ -83,7 +83,7 @@ Si contás con una placa y querés poner en marcha una aplicación embebida para
 
 Cuando tengas andando el ejemplo de prueba, podés elegir algunas de las aplicaciones MQTT dentro de la [lista de aplicaciones](https://github.com/gotoiot/embed-iot-core#lista-de-aplicaciones) para conectarte con el broker MQTT.
 
-La info necesaria para configurar y correr las diferentes aplicaciones la vas a encontrar directamente en el [README del proyecto](https://github.com/gotoiot/embed-iot-core), así podés acceder siempre a la información actualizada. 
+La info necesaria para configurar y correr las diferentes aplicaciones la vas a encontrar directamente en el README del proyecto, así podés acceder siempre a la información actualizada. 
 
 ### Comunicación entre Web Client y otros clientes
 
@@ -117,7 +117,7 @@ Los servicios de la aplicación se ejecutan sobre contenedores de Docker, así s
 
 ### Conexión de sensores/actuadores
 
-La conexión con sensores y actuadores no está incluída dentro de este repositorio ya que la plataforma se ejecuta sobre el ecosistema Docker. De todas maneras tenemos el repo [Embed IoT Core](https://github.com/gotoiot/embed-iot-core), que es una plataforma para desarrollar aplicaciones embebidas basadas en IoT. Tiene aplicaciones de ejemplo para diferentes protocolos de comunicación, y entre ellas, una sección dedicada a MQTT. Más abajo, en la sección [Conectar clientes remotos](#conectar-clientes-remotos), vas a encontrar los detalles para esto.
+La conexión con sensores y actuadores no está incluída dentro de este repositorio ya que la plataforma se ejecuta sobre el ecosistema Docker. De todas maneras, como te detallamos en la sección de Configuraciones de funcionamiento tenemos el repo [Embed IoT Core](https://github.com/gotoiot/embed-iot-core), que es una plataforma para desarrollar aplicaciones embebidas basadas en IoT. Tiene aplicaciones de ejemplo para diferentes protocolos de comunicación, y entre ellas, una sección dedicada a MQTT.
 
 </details>
 
@@ -173,4 +173,4 @@ Este proyecto está bajo Licencia ([MIT](https://choosealicense.com/licenses/mit
 
 ---
 
-**Copyright © Goto IoT 2021** ⌨️ [**Website**](https://www.gotoiot.com) ⌨️ [**Group**](https://groups.google.com/g/gotoiot) ⌨️ [**Github**](https://www.github.com/gotoiot) ⌨️ [**Twitter**](https://www.twitter.com/gotoiot) ⌨️ [**Wiki**](https://github.com/gotoiot/doc/wiki)
+**Copyright © Goto IoT 2021** - [**Website**](https://www.gotoiot.com) - [**Group**](https://groups.google.com/g/gotoiot) - [**Github**](https://www.github.com/gotoiot) - [**Twitter**](https://www.twitter.com/gotoiot) - [**Wiki**](https://github.com/gotoiot/doc/wiki)

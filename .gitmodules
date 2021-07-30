@@ -1,6 +1,6 @@
-[submodule "web-mqtt-client"]
-	path = web-mqtt-client
-	url = git@github.com:gotoiot/web-mqtt-client.git
 [submodule "service-mqtt-broker"]
 	path = service-mqtt-broker
-	url = git@github.com:gotoiot/service-mqtt-broker.git
+	url = https://github.com/gotoiot/service-mqtt-broker.git
+[submodule "web-mqtt-client"]
+	path = web-mqtt-client
+	url = https://github.com/gotoiot/web-mqtt-client.git
